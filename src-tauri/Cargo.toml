@@ -1,0 +1,58 @@
+[package]
+name = "recall"
+version = "0.1.0"
+description = "Recall — a lightweight, local-first active recall desktop app"
+authors = ["Recall"]
+edition = "2021"
+rust-version = "1.77"
+
+# The library holds all app logic so it can be unit-tested with `cargo test`
+# and reused by the mobile entry point. `main.rs` is a thin launcher.
+[lib]
+name = "recall_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+
+# Bundled SQLite: no system dependency, ships inside the binary.
+rusqlite = { version = "0.32", features = ["bundled"] }
+
+# HTTP client for AI providers. rustls avoids an OpenSSL system dependency
+# and keeps cross-platform builds simple. Default features are disabled so we
+# don't pull in native-tls.
+reqwest = { version = "0.12", default-features = false, features = [
+    "json",
+    "rustls-tls",
+] }
+
+# OS-native secure credential storage for API keys. Backends are selected
+# per-platform so we only compile what each OS needs.
+[target.'cfg(target_os = "macos")'.dependencies]
+keyring = { version = "3", features = ["apple-native"] }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+keyring = { version = "3", features = ["windows-native"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+keyring = { version = "3", features = ["sync-secret-service", "crypto-rust"] }
+
+[dev-dependencies]
+tempfile = "3"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time"] }
+
+[profile.release]
+# Optimize for a small binary — a core goal of the project.
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

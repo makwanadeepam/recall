@@ -1,0 +1,42 @@
+{
+  "//": "Reference examples for configuring an AI provider in Recall (Settings → AI provider).",
+  "//key": "API keys are NEVER stored in files or SQLite — you enter them in Settings and they go straight to your OS keychain. The 'api_key' fields below are only illustrative placeholders.",
+  "providers": {
+    "openai": {
+      "provider": "openai",
+      "base_url": "https://api.openai.com/v1",
+      "model": "gpt-4o-mini",
+      "api_key": "sk-...              (enter in Settings; stored in the OS keychain)"
+    },
+    "anthropic": {
+      "provider": "anthropic",
+      "base_url": "https://api.anthropic.com",
+      "model": "claude-3-5-haiku-latest",
+      "api_key": "sk-ant-...          (enter in Settings; stored in the OS keychain)"
+    },
+    "gemini": {
+      "provider": "gemini",
+      "base_url": "https://generativelanguage.googleapis.com",
+      "model": "gemini-2.0-flash",
+      "api_key": "AIza...             (enter in Settings; sent via x-goog-api-key header, never the URL)"
+    },
+    "openrouter": {
+      "provider": "openrouter",
+      "base_url": "https://openrouter.ai/api/v1",
+      "model": "openai/gpt-4o-mini",
+      "api_key": "sk-or-...           (enter in Settings; stored in the OS keychain)"
+    },
+    "ollama_local": {
+      "provider": "ollama",
+      "base_url": "http://localhost:11434/v1",
+      "model": "llama3.2",
+      "api_key": "ollama              (any value; Ollama ignores it — content stays on your device)"
+    },
+    "custom_openai_compatible": {
+      "provider": "custom",
+      "base_url": "http://localhost:8080/v1",
+      "model": "your-model-name",
+      "api_key": "(optional, depending on your endpoint)"
+    }
+  }
+}

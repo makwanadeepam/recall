@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "exported_at": 1756720800000,
+  "knowledge_items": [
+    {
+      "id": 1,
+      "title": "TCP Three-Way Handshake",
+      "content": "TCP establishes a reliable connection using a three-way handshake. The client sends a SYN segment, the server replies with SYN-ACK, and the client responds with ACK. After these three steps both sides have synchronized sequence numbers and the connection is established.",
+      "created_at": 1756720800000,
+      "updated_at": 1756720800000,
+      "tags": ["networking", "cs"]
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "knowledge_item_id": 1,
+      "question": "What are the three steps of the TCP handshake?",
+      "answer": "SYN → SYN-ACK → ACK",
+      "type": "basic",
+      "difficulty": "easy",
+      "metadata": {},
+      "created_at": 1756720800000,
+      "updated_at": 1756720800000,
+      "due_at": 1756720800000,
+      "interval": 0,
+      "ease_factor": 2.5,
+      "review_count": 0
+    },
+    {
+      "id": 2,
+      "knowledge_item_id": 1,
+      "question": "TCP establishes a connection using {{SYN}}, {{SYN-ACK}}, and {{ACK}}.",
+      "answer": "SYN, SYN-ACK, ACK",
+      "type": "cloze",
+      "difficulty": "easy",
+      "metadata": {},
+      "created_at": 1756720800000,
+      "updated_at": 1756720800000,
+      "due_at": 1756720800000,
+      "interval": 0,
+      "ease_factor": 2.5,
+      "review_count": 0
+    },
+    {
+      "id": 3,
+      "knowledge_item_id": 1,
+      "question": "Which flag does the client send first to initiate a TCP connection?",
+      "answer": "SYN",
+      "type": "mcq",
+      "difficulty": "medium",
+      "metadata": { "distractors": ["ACK", "FIN", "RST"] },
+      "created_at": 1756720800000,
+      "updated_at": 1756720800000,
+      "due_at": 1756807200000,
+      "interval": 1,
+      "ease_factor": 2.5,
+      "review_count": 1
+    }
+  ],
+  "reviews": [
+    {
+      "card_id": 3,
+      "rating": "good",
+      "user_answer": null,
+      "ai_evaluation": null,
+      "reviewed_at": 1756720900000
+    }
+  ]
+}

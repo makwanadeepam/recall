@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Minimal capability for the main window. The webview can call the app's own IPC commands and core APIs only. Import/export dialogs run in Rust, so no dialog or filesystem permission is exposed to the frontend.",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}
